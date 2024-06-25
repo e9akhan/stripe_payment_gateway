@@ -83,10 +83,10 @@ def makepayment(request):
         "payment_method_types": ["card", "amazon_pay"],
         "product_name": "T-Shirt",
         "product_amount": 2000,
-        "quantity": 2,
+        "quantity": 1,
         "invoice_creation_status": True,
         "success_url": "http://127.0.0.1:4242/return/",
-        "cancel_url": "http://127.0.0.1:4242/checkout/",
+        "cancel_url": "http://127.0.0.1:4242/",
         "customer_email": "akhan@enine.dev",
         "mode": "payment"
     }
