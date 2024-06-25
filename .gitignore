@@ -1,0 +1,8 @@
+.env
+__pycache__
+db.sqlite3
+stripe
+venv
+stripe_docs.md
+stripe.md
+stripe1.md
