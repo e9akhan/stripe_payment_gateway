@@ -1,16 +1,15 @@
 const buttons = document.querySelectorAll('#buy-now-button')
 // Create a Checkout Session
-async function initialize() {
-  const response = fetch("/make-payment/", {
-    method: "GET",
-  });
+function initialize() {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "/make-payment/", false)
+  xhr.send()
 
-  if (!response.ok) {
+  if (xhr.status !== 200) {
     throw new Error("Network response was not ok");
   }
 
-  const session = response.json();
-  // console.log(response.json())
+  const session = JSON.parse(xhr.responseText)
   var stripe = Stripe(session.checkout_public_key)
 
   const checkout = stripe.redirectToCheckout({

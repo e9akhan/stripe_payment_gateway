@@ -9,7 +9,6 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.shortcuts import render
-import stripe.error
 
 
 load_dotenv()
@@ -76,7 +75,7 @@ def create_checkout_session(request):
             
         except stripe.CardError as ce:
             return JsonResponse(error=ce)
-        except stripe.error.InvalidRequestError as invalid_request:
+        except stripe.InvalidRequestError as invalid_request:
             print(invalid_request)
             return HttpResponse(status=400)
 
