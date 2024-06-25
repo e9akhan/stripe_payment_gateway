@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('#buy-now-button')
 // Create a Checkout Session
 async function initialize() {
-  const response = await fetch("/make-payment/", {
+  const response = fetch("/make-payment/", {
     method: "GET",
   });
 
@@ -9,11 +9,11 @@ async function initialize() {
     throw new Error("Network response was not ok");
   }
 
-  const session = await response.json();
+  const session = response.json();
   // console.log(response.json())
   var stripe = Stripe(session.checkout_public_key)
 
-  const checkout = await stripe.redirectToCheckout({
+  const checkout = stripe.redirectToCheckout({
     sessionId: session.checkout_session_id,
   });
 

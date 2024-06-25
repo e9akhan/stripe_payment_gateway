@@ -1,5 +1,5 @@
 from django.urls import path
-from payment_app.views import makepayment, returnpage, checkoutpage, stripe_webhook, create_checkout_session
+from payment_app.views import makepayment, returnpage, checkoutpage, create_checkout_session
 
 urlpatterns = [
     # path("charge/", charge),
@@ -7,5 +7,5 @@ urlpatterns = [
     path("create-checkout-session/", create_checkout_session, name="create-checkout-session"),
     path("", checkoutpage, name="checkout"),
     path("return/", returnpage, name="return"),
-    path("webhook/", stripe_webhook)
+    # path("webhook/", stripe_webhook)
 ]
